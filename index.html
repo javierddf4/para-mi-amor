@@ -3,230 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Aniversario sheyla, Mi Amor 💖</title>
-    <style>
-        /* --- ESTILOS ULTRA LINDOS --- */
-        :root {
-            --color-principal: #ff4b72;
-            --color-secundario: #ff7597;
-            --color-fondo: #fff0f3;
-            --color-tarjeta: #ffffff;
-            --color-texto: #4a4a4a;
-        }
-
-        body {
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-
-        /* Corazones flotantes de fondo */
-        .corazon-flotante {
-            position: absolute;
-            color: rgba(255, 75, 114, 0.2);
-            font-size: 24px;
-            animation: flotar 6s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes flotar {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px 20px 20px;
-            z-index: 1;
-        }
-
-        h1 {
-            color: var(--color-principal);
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-            animation: latido 1.5s infinite alternate;
-        }
-
-        @keyframes latido {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.03); }
-        }
-
-        .subtitulo {
-            font-size: 1.5rem;
-            color: var(--color-secundario);
-            font-style: italic;
-        }
-
-        .contenedor-principal {
-            max-width: 900px;
-            width: 90%;
-            z-index: 1;
-            margin-bottom: 60px;
-        }
-
-        .tarjeta {
-            background: var(--color-tarjeta);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(255, 75, 114, 0.1);
-            margin-bottom: 40px;
-            text-align: center;
-            border: 1px solid rgba(255, 75, 114, 0.2);
-        }
-
-        h2 {
-            color: var(--color-principal);
-            border-bottom: 2px inline solid var(--color-fondo);
-            padding-bottom: 10px;
-        }
-
-        /* Sección Frases de Te Amo */
-        .caja-frase {
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--color-principal);
-            background: #fff8f9;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 5px solid var(--color-principal);
-        }
-
-        button {
-            background-color: var(--color-principal);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 75, 114, 0.3);
-        }
-
-        button:hover {
-            background-color: #e0365b;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 75, 114, 0.4);
-        }
-
-        /* --- ESTILOS DEL BUZÓN DE DESEOS --- */
-        .caja-buzon {
-            background: #fff8f9;
-            border: 2px dashed var(--color-secundario);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        textarea {
-            width: 90%;
-            height: 80px;
-            border: 1px solid #ffe3e8;
-            border-radius: 10px;
-            padding: 10px;
-            font-family: inherit;
-            resize: none;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            outline: none;
-        }
-
-        textarea:focus {
-            border-color: var(--color-principal);
-            box-shadow: 0 0 5px rgba(255, 75, 114, 0.2);
-        }
-
-        .lista-deseos {
-            margin-top: 20px;
-            text-align: left;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .deseo-item {
-            background: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            border-left: 4px solid var(--color-secundario);
-            animation: aparecer 0.4s ease;
-            font-size: 0.95rem;
-        }
-
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Grid de las 100 razones */
-        .grid-razones {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            max-height: 500px;
-            overflow-y: auto;
-            padding: 10px;
-            border: 1px solid #ffe3e8;
-            border-radius: 15px;
-            background: #fffbfc;
-        }
-
-        .item-razon {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #ffe3e8;
-            text-align: left;
-            font-size: 0.95rem;
-            transition: transform 0.2s;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .item-razon:hover {
-            transform: scale(1.02);
-            border-color: var(--color-secundario);
-            background: #fff8f9;
-        }
-
-        .numero-razon {
-            font-weight: bold;
-            color: var(--color-principal);
-            margin-right: 10px;
-            min-width: 25px;
-        }
-
-        /* Personalización de la barra de desplazamiento */
-        .grid-razones::-webkit-scrollbar, .lista-deseos::-webkit-scrollbar { width: 8px; }
-        .grid-razones::-webkit-scrollbar-track, .lista-deseos::-webkit-scrollbar-track { background: #fff0f3; border-radius: 10px; }
-        .grid-razones::-webkit-scrollbar-thumb, .lista-deseos::-webkit-scrollbar-thumb { background: var(--color-secundario); border-radius: 10px; }
-    </style>
+    <title>Feliz Aniversario Sheyla, Mi Amor 💖</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div id="contenedor-corazones"></div>
 
     <header>
-        <h1>💖 ¡Feliz Aniversario sheyla, Mi Amor! 💖</h1>
-        <p class="subtitulo">Eres lo mejor que me ha pasado en la vida,con Amor tu novio javi</p>
+        <h1>💖 ¡Feliz Aniversario, Mi Amor! 💖</h1>
+        <p class="subtitulo">Eres lo mejor que me ha pasado en la vida, mi querida princesa. Con amor, Javi.</p>
+        <div class="contador-caja" id="contadorTiempo">Calculando los días más felices...</div>
     </header>
 
     <div class="contenedor-principal">
+        
+        <div class="tarjeta">
+            <h2>🎵 Nuestra Canción Especial 🎵</h2>
+            <p>Dale play para escuchar de fondo nuestra canción mientras miras la página:</p>
+            <div style="margin-top: 15px;">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/60Onu39Yw7Gisb74h9836V?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <h2>🎟️ Cuponera de Amor Interactiva 🎟️</h2>
+            <p>Tienes estos cupones mágicos disponibles. ¡Haz clic para canjearlos cuando quieras!</p>
+            <div class="contenedor-cupones">
+                <button onclick="canjearCupon('¡Cena Romántica! 🍕 Prepararé tu comida favorita y elegirás la película.')">🍕 Vale por una Cena</button>
+                <button onclick="canjearCupon('¡Masaje Relajante! 💆‍♂️ Válido por 30 minutos de total desconexión y mimos.')">💆‍♂️ Vale por un Masaje</button>
+                <button onclick="canjearCupon('¡Tarde de Helado! 🍦 Salgamos por tu postre favorito hoy mismo.')">🍦 Vale por un Helado</button>
+            </div>
+        </div>
         
         <div class="tarjeta">
             <h2>📜 Un Mensaje del Corazón 📜</h2>
@@ -243,139 +54,18 @@
                 <br>
                 <button onclick="enviarDeseo()">💌 Enviar al Corazón 💌</button>
                 
-                <div class="lista-deseos" id="listaDeseos">
-                    </div>
+                <div class="lista-deseos" id="listaDeseos"></div>
             </div>
         </div>
 
         <div class="tarjeta">
             <h2>🌹 100 Razones Por Las Que Te Amo 🌹</h2>
             <p>Desliza hacia abajo para leer detalladamente cada pequeña gran cosa que amo de ti:</p>
-            
-            <div class="grid-razones" id="listaRazones">
-                </div>
+            <div class="grid-razones" id="listaRazones"></div>
         </div>
 
     </div>
 
-    <script>
-        // --- 1. GENERADOR DE CORAZONES DE FONDO ---
-        function crearCorazones() {
-            const contenedor = document.getElementById('contenedor-corazones');
-            for (let i = 0; i < 25; i++) {
-                const corazon = document.createElement('div');
-                corazon.classList.add('corazon-flotante');
-                corazon.innerText = '❤️';
-                corazon.style.left = Math.random() * 100 + 'vw';
-                corazon.style.animationDelay = Math.random() * 5 + 's';
-                corazon.style.fontSize = Math.random() * 20 + 15 + 'px';
-                contenedor.appendChild(corazon);
-            }
-        }
-        crearCorazones();
-
-        // --- 2. FRASES INTERACTIVAS ---
-        const frasesAmor = [
-            "Te amo más que a ayer, pero menos que a mañana. 💖",
-            "Eres mi lugar favorito en el mundo entero. 🌍",
-            "Mi felicidad tiene tu nombre grabado. 🥰",
-            "Si volviera a nacer, te elegiría una y mil veces más. 👩‍❤️‍👨",
-            "Cada momento a tu lado es un recuerdo perfecto. 📸",
-            "Eres el sueño del que nunca me quiero despertar. 💤",
-            "Tu sonrisa ilumina hasta mi día más oscuro. ☀️",
-            "Amarte es la decisión más fácil y hermosa que he tomado. ✨"
-        ];
-
-        function cambiarFrase() {
-            const caja = document.getElementById('cajaFrase');
-            const fraseAleatoria = frasesAmor[Math.floor(Math.random() * frasesAmor.length)];
-            caja.style.opacity = 0;
-            setTimeout(() => {
-                caja.innerText = `"${fraseAleatoria}"`;
-                caja.style.opacity = 1;
-            }, 200);
-        }
-
-        // --- 3. TUS 20 RAZONES PERSONALIZADAS ---
-        const razones = [
-            "Por tu hermosa y contagiosa sonrisa.",
-            "Por la forma tan tierna en la que me miras.",
-            "Porque haces que los días difíciles sean mucho más ligeros.",
-            "Por tus abrazos que me hacen sentir completamente seguro/a.",
-            "Por tu paciencia infinita y tu gran corazón.",
-            "Porque compartimos el mismo sentido del humor.",
-            "Por cómo te preocupas por mí cuando no me siento bien.",
-            "Por los hermosos recuerdos que hemos construido juntos.",
-            "Por tu voz, que es mi sonido favorito en el mundo.",
-            "Porque me apoyas en cada uno de mis sueños y metas.",
-            "Por la forma que me amas es algo unico me tienes loco.",
-            "Por tu inteligencia y lo mucho que aprendo de ti.",
-            "Porque sabes exactamente cómo hacerme reír.",
-            "Por tus pequeños detalles inesperados.",
-            "Por la forma en que iluminas mi corazon:3.",
-            "Porque eres mi mejor amigo/a y mi gran amor.",
-            "Porque siempre estas en mis pensamientos.",
-            "Porque eres una persona unica y especial.",
-            "Por cómo planificas el futuro pensando en los dos.",
-            "Por tu valentía y la fuerza con la que afrontas los retos."
-        ];
-
-        // Rellenar automáticamente con frases dulces derivadas de tus razones hasta llegar a 100
-        const complementos = [
-            "por hacerme el chico/a más feliz del planeta.", 
-            "por llenar mi vida de tanto amor incondicional.", 
-            "por cada momento hermoso que pasamos juntos.", 
-            "por tu forma tan bonita de cuidar nuestro amor.", 
-            "por ser mi paz en medio de cualquier tormenta.", 
-            "por tus detalles que me enamoran a diario.",
-            "por la hermosa magia de tu existencia.", 
-            "por ser mi confidente y mi refugio eterno."
-        ];
-        
-        let indiceBase = 0;
-        while(razones.length < 100) {
-            let comp = complementos[Math.floor(Math.random() * complementos.length)];
-            razones.push(`Porque me enamoras cada segundo y ${comp}`);
-            indiceBase++;
-        }
-
-        // Renderizar las 100 razones finales en la cuadrícula
-        const contenedorRazones = document.getElementById('listaRazones');
-        razones.forEach((razon, index) => {
-            const item = document.createElement('div');
-            item.classList.add('item-razon');
-            
-            const numero = document.createElement('span');
-            numero.classList.add('numero-razon');
-            numero.innerText = `${index + 1}.`;
-            
-            const texto = document.createElement('span');
-            texto.innerText = razon;
-            
-            item.appendChild(numero);
-            item.appendChild(texto);
-            contenedorRazones.appendChild(item);
-        });
-
-        // --- 4. LÓGICA DEL BUZÓN DE DESEOS ---
-        function enviarDeseo() {
-            const inputDeseo = document.getElementById('textoDeseo');
-            const contenedorLista = document.getElementById('listaDeseos');
-            
-            if (inputDeseo.value.trim() === "") {
-                alert("¡Escribe un deseo antes de enviar! 💖");
-                return;
-            }
-            
-            const nuevoDeseo = document.createElement('div');
-            nuevoDeseo.classList.add('deseo-item');
-            nuevoDeseo.innerHTML = `🌟 <strong>Deseo guardado:</strong> ${inputDeseo.value}`;
-            
-            contenedorLista.appendChild(nuevoDeseo);
-            inputDeseo.value = "";
-            
-            alert("¡Tu deseo ha sido enviado a mi corazón! 🥰✨");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
