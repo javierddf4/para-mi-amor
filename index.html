@@ -6,12 +6,304 @@
     <title>Feliz Aniversario Sheyla, Mi Amor 💖</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* --- ESTILOS ULTRA LINDOS Y MODERNOS --- */
+        :root {
+            --color-principal: #ff4b72;
+            --color-secundario: #ff7597;
+            --color-fondo: #fff0f3;
+            --color-tarjeta: #ffffff;
+            --color-texto: #4a4a4a;
+            --gradient-romantico: linear-gradient(135deg, #ff4b72 0%, #ff7597 100%);
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- SOLUCIÓN AL BUG: pointer-events: none para que deje hacer clic --- */
+        .corazon-flotante {
+            position: absolute;
+            color: rgba(255, 75, 114, 0.25);
+            font-size: 24px;
+            animation: flotar 6s linear infinite;
+            z-index: 0;
+            pointer-events: none; /* Crucial para que no bloquee los clics */
+            user-select: none;
+        }
+
+        /* Partículas al hacer clic */
+        .click-corazon {
+            position: absolute;
+            color: var(--color-principal);
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 999;
+            --x: 0px;
+            --y: 0px;
+            animation: explotarCorazon 0.8s ease-out forwards;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes explotarCorazon {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0); opacity: 0; }
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            color: var(--color-principal);
+            font-size: 4.5rem;
+            font-family: 'Dancing Script', cursive; /* Aplicada la tipografía */
+            margin-bottom: 10px;
+            text-shadow: 2px 4px 10px rgba(255, 75, 114, 0.2);
+            animation: latido 1.2s infinite alternate ease-in-out;
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,75,114,0)); }
+            100% { transform: scale(1.04); filter: drop-shadow(0 0 8px rgba(255,75,114,0.6)); }
+        }
+
+        .subtitulo {
+            font-size: 1.5rem;
+            color: var(--color-secundario);
+            font-style: italic;
+        }
+
+        .contador-caja {
+            background: var(--gradient-romantico);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(255, 75, 114, 0.3);
+            margin: 20px auto;
+            display: inline-block;
+            letter-spacing: 1px;
+            animation: brilloContador 3s infinite alternate;
+        }
+
+        @keyframes brilloContador {
+            0% { box-shadow: 0 8px 20px rgba(255, 75, 114, 0.3); }
+            100% { box-shadow: 0 8px 30px rgba(255, 75, 114, 0.6); }
+        }
+
+        .contenedor-principal {
+            max-width: 900px;
+            width: 90%;
+            z-index: 1;
+            margin-bottom: 60px;
+        }
+
+        .tarjeta {
+            background: var(--color-tarjeta);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(255, 75, 114, 0.08);
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 75, 114, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--color-principal);
+            padding-bottom: 10px;
+            font-size: 2.5rem;
+            font-family: 'Dancing Script', cursive; /* Aplicada la tipografía */
+        }
+
+        .caja-frase {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--color-principal);
+            background: #fff8f9;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 6px solid var(--color-principal);
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 10px rgba(255,75,114,0.05);
+        }
+
+        button {
+            background: var(--gradient-romantico);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 75, 114, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(255, 75, 114, 0.5);
+        }
+
+        .caja-buzon {
+            background: #fff8f9;
+            border: 2px dashed var(--color-secundario);
+            border-radius: 18px;
+            padding: 25px;
+            margin-top: 35px;
+        }
+
+        h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--color-principal);
+            margin-top: 0;
+        }
+
+        textarea {
+            width: 90%;
+            height: 90px;
+            border: 1px solid #ffe3e8;
+            border-radius: 12px;
+            padding: 12px;
+            font-family: inherit;
+            resize: none;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        textarea:focus {
+            border-color: var(--color-principal);
+            box-shadow: 0 0 8px rgba(255, 75, 114, 0.2);
+        }
+
+        .lista-deseos {
+            margin-top: 20px;
+            text-align: left;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+
+        .deseo-item {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--color-secundario);
+            font-size: 0.95rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            animation: aparecer 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9) translateY(15px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .grid-razones {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 12px;
+            border: 1px solid #ffe3e8;
+            border-radius: 18px;
+            background: #fffbfc;
+        }
+
+        .item-razon {
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #ffe3e8;
+            text-align: left;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+        }
+
+        .item-razon:hover {
+            transform: scale(1.04);
+            border-color: var(--color-secundario);
+            background: #fff8f9;
+            box-shadow: 0 5px 15px rgba(255,75,114,0.1);
+        }
+
+        .numero-razon {
+            font-weight: bold;
+            color: var(--color-principal);
+            margin-right: 12px;
+            min-width: 25px;
+        }
+
+        .reproductor-musica {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-romantico);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 114, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .reproductor-musica:hover {
+            transform: scale(1.1);
+        }
+
+        .grid-razones::-webkit-scrollbar, .lista-deseos::-webkit-scrollbar { width: 8px; }
+        .grid-razones::-webkit-scrollbar-track, .lista-deseos::-webkit-scrollbar-track { background: #fff0f3; border-radius: 10px; }
+        .grid-razones::-webkit-scrollbar-thumb, .lista-deseos::-webkit-scrollbar-thumb { background: var(--color-secundario); border-radius: 10px; }
+    </style>
 </head>
 <body>
 
     <div id="contenedor-corazones"></div>
+
+    <audio id="musicaFondo" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    <div class="reproductor-musica" onclick="controlarMusica()" id="iconoMusica">🎵</div>
 
     <header>
         <h1>💖 ¡Feliz Aniversario, Mi Amor! 💖</h1>
@@ -20,24 +312,6 @@
     </header>
 
     <div class="contenedor-principal">
-        
-        <div class="tarjeta">
-            <h2>🎵 Nuestra Canción Especial 🎵</h2>
-            <p>Dale play para escuchar de fondo nuestra canción mientras miras la página:</p>
-            <div style="margin-top: 15px;">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/60Onu39Yw7Gisb74h9836V?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div class="tarjeta">
-            <h2>🎟️ Cuponera de Amor Interactiva 🎟️</h2>
-            <p>Tienes estos cupones mágicos disponibles. ¡Haz clic para canjearlos cuando quieras!</p>
-            <div class="contenedor-cupones">
-                <button onclick="canjearCupon('¡Cena Romántica! 🍕 Prepararé tu comida favorita y elegirás la película.')">🍕 Vale por una Cena</button>
-                <button onclick="canjearCupon('¡Masaje Relajante! 💆‍♂️ Válido por 30 minutos de total desconexión y mimos.')">💆‍♂️ Vale por un Masaje</button>
-                <button onclick="canjearCupon('¡Tarde de Helado! 🍦 Salgamos por tu postre favorito hoy mismo.')">🍦 Vale por un Helado</button>
-            </div>
-        </div>
         
         <div class="tarjeta">
             <h2>📜 Un Mensaje del Corazón 📜</h2>
@@ -66,6 +340,202 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // --- 1. GENERADOR DE CORAZONES DE FONDO ---
+        function crearCorazones() {
+            const contenedor = document.getElementById('contenedor-corazones');
+            if(!contenedor) return;
+            for (let i = 0; i < 25; i++) {
+                const corazon = document.createElement('div');
+                corazon.classList.add('corazon-flotante');
+                corazon.innerText = '❤️';
+                corazon.style.left = Math.random() * 100 + 'vw';
+                corazon.style.animationDelay = Math.random() * 5 + 's';
+                corazon.style.fontSize = Math.random() * 20 + 15 + 'px';
+                contenedor.appendChild(corazon);
+            }
+        }
+
+        // --- ANIMACIÓN AL HACER CLIC ---
+        document.body.addEventListener('click', (e) => {
+            if(e.target.tagName === 'BUTTON' || e.target.tagName === 'TEXTAREA') return;
+            
+            for(let i=0; i<6; i++) {
+                const particula = document.createElement('div');
+                particula.classList.add('click-corazon');
+                particula.innerText = '❤️';
+                particula.style.left = e.pageX + 'px';
+                particula.style.top = e.pageY + 'px';
+                
+                const x = (Math.random() - 0.5) * 150;
+                const y = (Math.random() - 0.5) * 150;
+                particula.style.setProperty('--x', `${x}px`);
+                particula.style.setProperty('--y', `${y}px`);
+                
+                document.body.appendChild(particula);
+                setTimeout(() => particula.remove(), 800);
+            }
+        });
+
+        // --- 2. CONTADOR DINÁMICO PERMANENTE ---
+        const fechaInicio = new Date(2025, 1, 13, 14, 0, 0); 
+
+        function actualizarContador() {
+            const elementoContador = document.getElementById('contadorTiempo');
+            if (!elementoContador) return;
+
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            elementoContador.innerText = 
+                `⏱️ Juntos desde el 13 de Feb: ${dias} días, ${horas}h, ${minutos}m y ${segundos}s ❤️`;
+        }
+
+        // --- 3. REPRODUCTOR DE MÚSICA ---
+        function controlarMusica() {
+            const musica = document.getElementById('musicaFondo');
+            const icono = document.getElementById('iconoMusica');
+            if (musica.paused) {
+                musica.play().catch(e => console.log("Haga clic para activar audio"));
+                icono.innerText = '⏸️';
+            } else {
+                musica.pause();
+                icono.innerText = '🎵';
+            }
+        }
+
+        // --- 4. FRASES INTERACTIVAS ---
+        const frasesAmor = [
+            "Te amo más que a ayer, pero menos que a mañana. 💖",
+            "Eres mi lugar favorito en el mundo entero. 🌍",
+            "Mi felicidad tiene tu nombre grabado. 🥰",
+            "Si volviera a nacer, te elegiría una y mil veces más. 👩‍❤️‍👨",
+            "Cada momento a tu lado es un recuerdo perfecto. 📸",
+            "Eres el sueño del que nunca me quiero despertar. 💤",
+            "Tu sonrisa ilumina hasta mi día más oscuro. ☀️",
+            "Amarte es la decisión más fácil y hermosa que he tomado. ✨"
+        ];
+
+        function cambiarFrase() {
+            const caja = document.getElementById('cajaFrase');
+            if(!caja) return;
+            const fraseAleatoria = frasesAmor[Math.floor(Math.random() * frasesAmor.length)];
+            caja.style.opacity = 0;
+            setTimeout(() => {
+                caja.innerText = `"${fraseAleatoria}"`;
+                caja.style.opacity = 1;
+            }, 200);
+        }
+
+        // --- 5. ENRUTADO LOGICO DE LAS 100 RAZONES ---
+        const razones = [
+            "Por tu hermosa y contagiosa sonrisa.",
+            "Por la forma tan tierna en la que me miras.",
+            "Porque haces que los días difíciles sean mucho más ligeros.",
+            "Por tus abrazos que me hacen sentir completamente seguro.",
+            "Por tu paciencia infinita y tu gran corazón.",
+            "Porque compartimos el mismo sentido del humor.",
+            "Por cómo te preocupas por mí cuando no me siento bien.",
+            "Por los hermosos recuerdos que hemos construido juntos.",
+            "Por tu voz, que es mi sonido favorito en el mundo.",
+            "Porque me apoyas en cada uno de mis sueños y metas.",
+            "Por la forma en que me amas, es algo único, me tienes loco.",
+            "Por tu inteligencia y lo mucho que aprendo de ti.",
+            "Porque sabes exactamente cómo hacerme reír.",
+            "Por tus pequeños detalles inesperados.",
+            "Por la forma en que iluminas mi corazón :3.",
+            "Porque eres mi mejor amiga y mi gran amor.",
+            "Porque siempre estás en mis pensamientos.",
+            "Porque eres una persona única y especial.",
+            "Por cómo planificas el futuro pensando en los dos.",
+            "Por tu valentía y la fuerza con la que afrontas los retos."
+        ];
+
+        const complementos = [
+            "por hacerme el chico más feliz del planeta. 😍", 
+            "por llenar mi vida de tanto amor incondicional. 🌹", 
+            "por cada momento hermoso que pasamos juntos. 🧸", 
+            "por tu forma tan bonita de cuidar nuestro amor. ✨", 
+            "por ser mi paz en medio de cualquier tormenta. 🕊️", 
+            "por tus detalles que me enamoran a diario. 💘",
+            "por la hermosa magia de tu existencia. 🪄", 
+            "por ser mi confidente y mi refugio eterno. 🏠"
+        ];
+
+        while(razones.length < 100) {
+            let comp = complementos[Math.floor(Math.random() * complementos.length)];
+            razones.push(`Porque me enamoras cada segundo y ${comp}`);
+        }
+
+        function inicializarRazones() {
+            const contenedorRazones = document.getElementById('listaRazones');
+            if(!contenedorRazones) return;
+            contenedorRazones.innerHTML = "";
+            razones.forEach((razon, index) => {
+                const item = document.createElement('div');
+                item.classList.add('item-razon');
+                
+                const numero = document.createElement('span');
+                numero.classList.add('numero-razon');
+                numero.innerText = `${index + 1}.`;
+                
+                const texto = document.createElement('span');
+                texto.innerText = razon;
+                
+                item.appendChild(numero);
+                item.appendChild(texto);
+                contenedorRazones.appendChild(item);
+            });
+        }
+
+        // --- 6. LÓGICA DEL BUZÓN DE DESEOS CON MEMORIA ---
+        function agregarDeseoAlDOM(texto) {
+            const contenedorLista = document.getElementById('listaDeseos');
+            if(!contenedorLista) return;
+            const nuevoDeseo = document.createElement('div');
+            nuevoDeseo.classList.add('deseo-item');
+            nuevoDeseo.innerHTML = `🌟 <strong>Deseo guardado:</strong> ${texto}`;
+            contenedorLista.appendChild(nuevoDeseo);
+        }
+
+        function enviarDeseo() {
+            const inputDeseo = document.getElementById('textoDeseo');
+            if(!inputDeseo) return;
+            const texto = inputDeseo.value.trim();
+            
+            if (texto === "") {
+                alert("¡Escribe un deseo antes de enviar! 💖");
+                return;
+            }
+            
+            agregarDeseoAlDOM(texto);
+            
+            const wishes = JSON.parse(localStorage.getItem('deseosSheyla')) || [];
+            wishes.push(texto);
+            localStorage.setItem('deseosSheyla', JSON.stringify(wishes));
+            
+            inputDeseo.value = "";
+            alert("¡Tu deseo ha sido enviado a mi corazón y guardado aquí! 🥰✨");
+        }
+
+        // --- 7. DISPARADORES AL CARGAR LA PÁGINA ---
+        window.onload = function() {
+            crearCorazones();
+            inicializarRazones();
+            
+            // Inicia contador enseguida
+            actualizarContador();
+            setInterval(actualizarContador, 1000);
+            
+            // Cargar deseos guardados
+            const wishes = JSON.parse(localStorage.getItem('deseosSheyla')) || [];
+            wishes.forEach(deseo => agregarDeseoAlDOM(deseo));
+        };
+    </script>
 </body>
 </html>
